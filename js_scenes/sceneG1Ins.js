@@ -2,8 +2,6 @@ function scene_G1_Ins() {
   background(200, 200, 0);
   image(G1InsImg, 200, 200, width, height);
   time();
-  fill(0, 200, 200);
-  textSize(20);
   noCursor();
   
   sprite.move();
