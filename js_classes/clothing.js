@@ -1,14 +1,17 @@
 class Clothing {
-  constructor(x, y, selectedClothing, inSuitcase){
-    this.x = x;
-    this.y = y;
+  constructor(img, selectedClothing, inSuitcase){
+    this.x = random(width);
+    this.y = random(height);
     this.selectedClothing = selectedClothing;
     this.inSuitcase = inSuitcase;
+    this.img = img;
+    this.imgW = random(30, 70);
+    this.imgH = random(30, 70);
   }
   
   display(){
-      fill(0);
-      rect(this.x, this.y, 30, 30);
+      image(this.img, this.x, this.y, this.imgW, this.imgH);
+      // img.resize(random(30, 70), 0)
         //move clothing with mouse
         if (! this.inSuitcase && this.selectedClothing != -1){
           this.x = mouseX;

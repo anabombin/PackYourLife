@@ -6,27 +6,61 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
 
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-    <script src="js_classes/clothing.js"></script>
-    <script src="js_classes/suitcase.js"></script>
-    <script src="js_classes/clutter.js"></script>
-    <script src="js_classes/room.js"></script>
-    <script src="js_classes/sprite.js"></script>
-    <script src="js_classes/end.js"></script>
-    <script src="js_classes/clouds.js"></script>
-    <script src="js_scenes/sceneroom.js"></script>
-    <script src="js_scenes/scenehome.js"></script>
-    <script src="js_scenes/sceneG1.js"></script>
-    <script src="js_scenes/sceneG2.js"></script>
-    <script src="js_scenes/sceneG3.js"></script>
-    <script src="js_scenes/sceneG1Ins.js"></script>
-    <script src="js_scenes/sceneG2Ins.js"></script>
-    <script src="js_scenes/sceneG3Ins.js"></script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
 
-    <p>this is a website</p>
+      section {
+        text-align: center;
+      }
+
+      header {
+        font-family: Helvetica;
+        font-size: 6vw;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+      }
+
+      #game {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <header>
+        Packing Your Life!
+      </header>
+      
+      <article id="game">
+        <script src="sketch.js"></script>
+        <script src="js_classes/clothing.js"></script>
+        <script src="js_classes/suitcase.js"></script>
+        <script src="js_classes/clutter.js"></script>
+        <script src="js_classes/room.js"></script>
+        <script src="js_classes/sprite.js"></script>
+        <script src="js_classes/end.js"></script>
+        <script src="js_classes/clouds.js"></script>
+        <script src="js_scenes/sceneroom.js"></script>
+        <script src="js_scenes/scenehome.js"></script>
+        <script src="js_scenes/sceneG1.js"></script>
+        <script src="js_scenes/sceneG2.js"></script>
+        <script src="js_scenes/sceneG3.js"></script>
+        <script src="js_scenes/sceneG1Ins.js"></script>
+        <script src="js_scenes/sceneG2Ins.js"></script>
+        <script src="js_scenes/sceneG3Ins.js"></script>
+      </article>
+      
+      <footer class="footer">
+      </footer>
+    </section>
   </body>
 </html>

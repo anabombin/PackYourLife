@@ -1,17 +1,14 @@
 class End {
-  constructor(score){
-    this.score = score;
+  constructor(img){
+    this.img = img;
+    this.width = 400;
+    this.height = 400;
+    this.x = 200;
+    this.y = 200;
   }
   
   display(){
-    fill(255);
-    ellipse(width/2, height/2, 400, 400);
-    fill(0);
-    // text("score: "+this.score, 150, 200);
-    fill(255);
-    rect(200, 300, 150, 50);
-    fill(0);
-    text("back to room", 180, 300);
+    image(this.img, this.x, this.y, this.width, this.height);
   }
   
 }

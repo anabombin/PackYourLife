@@ -7,15 +7,14 @@ let clothing = [];
 let suitcase;
 let clutter = [];
 let room;
-let sprite;
+let sprite1;
+let sprite2;
 let end;
-let spriteImg;
-let spriteImg2;
-let clouds;
-// let cloudsImg = [];
-let sprites = [];
+let clouds = [];
+let cloudsImg = [];
+let sprite;
 let roomImg;
-// let clutterImg = [];
+let clutterImg = [];
 let clothingImg = [];
 let suitcaseImg;
 let G2Ins;
@@ -24,18 +23,35 @@ let G3Img;
 let G1Img;
 let G3InsImg;
 let G1InsImg;
+let G2InsImg;
+let endImg;
+let furnitureImg;
+
+let zoneOutSong;
 
 function preload() {
-  sprite1 = loadImage("assets/sprite1.jpg");
-  sprite2 = loadImage("assets/sprite2.jpg");
+  sprite1 = loadImage("assets/sprite0.png");
+  sprite2 = loadImage("assets/sprite1.png");
   roomImg = loadImage("assets/room.jpeg");
-  suitcaseImg = loadImage("assets/suitcase.jpg");
+  suitcaseImg = loadImage("assets/suitcase.png");
   homeImg = loadImage("assets/Home.jpg");
   G3Img = loadImage("assets/G3.jpg");
   G1Img = loadImage("assets/G1.jpg");
   G3InsImg = loadImage("assets/G3Ins.jpg");
   G1InsImg = loadImage("assets/G1Ins.jpg");
-  // G2Ins = loadImage("assets/G2Ins.jpeg");
+  G2InsImg = loadImage("assets/G2Ins.jpeg");
+  endImg = loadImage("assets/end.png");
+  furnitureImg = loadImage("assets/furniture.png");
+  for (let i = 0; i< 4; i++) {
+    cloudsImg[i] = loadImage("assets/clouds/cloud_" + i + ".png");
+  }
+  for (let i = 0; i< 13; i++) {
+    clutterImg[i] = loadImage("assets/clutter/clutter_" + i + ".png");
+  }
+  for (let i = 0; i< 10; i++) {
+    clothingImg[i] = loadImage("assets/clothing/clothing_" + i + ".png");
+  }
+  zoneOutSong = loadSound("assets/song.mp3");
 }
 
 function setup() {
@@ -45,38 +61,32 @@ function setup() {
 
   //clothing class array
   for (let i = 0; i < 10; i++) {
-    clothing[i] = new Clothing(random(width), random(height), -1, false);
+    let imgClothing = random(clothingImg);
+    clothing[i] = new Clothing(imgClothing, -1, false);
   }
 
   //Suitcase
-  suitcase = new Suitcase(suitcaseImg, 200, 200, 125, 125);
+  suitcase = new Suitcase(suitcaseImg, 200, 200, 170, 130);
 
   //Room furniture
-  room = new Room();
+  room = new Room(furnitureImg);
 
   //Sprite
-  sprites = [sprite1, sprite2];
-  sprite = new Sprite(70, 300, sprite1, sprite2);
-
-  // for (let i = 0; i < 2; i++) {
-  //   sprite[i] = new Sprite(70, 300, sprites);
-  // }
+  sprite = new Sprite(70, 300, sprite1);
 
   //clouds
-  cloudsImg = loadImage("assets/cloud.jpg");
-  clouds = new Clouds(cloudsImg);
+  for (let i = 0; i < 8; i++) {
+    let imgClouds = random(cloudsImg); // Randomly select a cloud image
+    clouds[i] = new Clouds(imgClouds);
+  }
 
   //End message
-  end = new End(5);
+  end = new End(endImg);
 
   // clutter class array
-  for (let i = 0; i < 10; i++) {
-    clutter[i] = new Clutter(
-      random(width),
-      random(height),
-      random(10, 50),
-      random(10, 50)
-    );
+  for (let i = 0; i < 13; i++) {
+    let imgClutter = random(clutterImg); // Randomly select a cloud image
+    clutter[i] = new Clutter(imgClutter);
   }
 }
 
@@ -113,10 +123,10 @@ function mousePressed() {
   //Entering Universe from home
   if (
     mode == 0 &&
-    mouseX >= 100 &&
+    mouseX >= 120 &&
     mouseX <= 300 &&
     mouseY >= 275 &&
-    mouseY <= 325
+    mouseY <= 350
   ) {
     mode++;
   }
@@ -125,10 +135,10 @@ function mousePressed() {
   if (
     mode == 3 &&
     secondsPassed <= 0 &&
-    mouseX > 150 &&
-    mouseX < 250 &&
-    mouseY > 275 &&
-    mouseY < 325
+    mouseX > 125 &&
+    mouseX < 275 &&
+    mouseY > 225 &&
+    mouseY < 300
   ) {
     mode = 1;
     sprite.spriteX = 100;
@@ -136,10 +146,10 @@ function mousePressed() {
   } else if (
     mode == 5 &&
     secondsPassed <= 0 &&
-    mouseX > 150 &&
-    mouseX < 250 &&
-    mouseY > 275 &&
-    mouseY < 325
+    mouseX > 125 &&
+    mouseX < 275 &&
+    mouseY > 225 &&
+    mouseY < 300
   ) {
     mode = 1;
     sprite.spriteX = 100;

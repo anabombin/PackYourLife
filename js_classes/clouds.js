@@ -1,24 +1,23 @@
 class Clouds {
-  constructor(img){
+  constructor(img) {
+    this.cloudX = random(200, 600); 
+    this.cloudY = random(height);
+    this.cloudW = random(100, 250);
+    this.cloudH = random(75, 150);
+    this.speed = random(1, 3); 
     this.img = img;
-    this.x = width+250;
-    this.y = random(0, height);
-    this.cWidth = random(50, 250);
-    this.cHeight = random(25, 100);
-    this.velocity = random(1, 5);
   }
-  
-  display(){
-    image(this.img, this.x, this.y, this.cWidth, this.cHeight);
+
+  display() {
+    image(this.img, this.cloudX, this.cloudY, this.cloudW, this.cloudH);
   }
-  
-  move(){
-    for (let i=width; i>0; i++){
-      this.x -= this.velocity;
-      
-      if(this.x < -250){
-        this.x = width+250;
-      }
+
+  move() {
+    if (this.cloudX <= -200) {
+      this.cloudX = 600; 
+      this.cloudY = random(height);
+    } else {
+      this.cloudX -= this.speed; 
     }
   }
 }

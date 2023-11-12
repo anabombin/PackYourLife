@@ -1,23 +1,10 @@
 function scene_G1_Ins() {
   background(200, 200, 0);
+  image(G1InsImg, 200, 200, width, height);
   time();
   fill(0, 200, 200);
   textSize(20);
-  text("Clear your desk & pack your backpack", 50, 150);
-  //Start Game button
-  text("You have 10 seconds ", 100, 750);
-  fill(0, 0, 200);
-  rect(width/2, height/4*3, 200, 50);
-  fill(0, 200, 200);
-  textSize(12);
-  text("Start Game", 150, 300);
-  //Back to room
-  fill(0, 0, 200);
-  rect(325, 50, 100, 50);
-  fill(200, 200, 200);
-  textSize(12);
-  text("back to room", 300, 50);
-  
+  noCursor();
   
   sprite.move();
   sprite.display();

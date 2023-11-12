@@ -1,19 +1,19 @@
 class Clutter {
-  constructor(x, y, rect_width, rect_height){
-    this.x = x;
-    this.y = y;
-    this.rect_width = rect_width;
-    this.rect_height = rect_height;
+  constructor(img){
+    this.x = random(50, width);
+    this.y = random(75, 325);
+    this.rect_width = random(10, 50);
+    this.rect_height = random(10, 50);
+    this.img = img;
   }
   
   display(){
-    stroke(0);
-    fill(255);
-    rect(this.x, this.y, this.rect_width, this.rect_height);
+    image(this.img, this.x, this.y, this.rect_width, this.rect_height);
     const result = this.checkBounds(this.x, this.y, this.rect_width, this.rect_height);
     this.x = result[0];
     this.y = result[1];
   }
+      
 
   
   checkBounds(x, y, rect_w, rect_h){

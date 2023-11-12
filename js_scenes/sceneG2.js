@@ -3,7 +3,10 @@ function scene_G2() {
   cursor(ARROW);
   image(roomImg, 200, 200, width+200, height+200);
   time();
-  text("Seconds: " + secondsPassed, 100, 75);
+  fill(255, 50, 50);
+  noStroke();
+  textSize(12);
+  text("Seconds: " + secondsPassed, 25, 25);
   
   //Display Suitcase
   suitcase.display();

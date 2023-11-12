@@ -1,24 +1,24 @@
 function scene_G3() {
   background(200, 200, 0);
-  clouds.move();
-  clouds.display();
-  
-  fill(0, 200, 200);
-  textSize(20);
-  text("Dance it Out!", 50, 150);
-  
-  //Back to room
-  fill(0, 0, 200);
-  rect(325, 50, 100, 50);
-  fill(200, 200, 200);
-  textSize(12);
-  text("back to reality", 300, 50);
+  image(G3Img, 200, 200, 400, 400);
+  noCursor();
+
+  // Display clouds passing
+  for (let i = 0; i < 8; i++) {
+    clouds[i].move();
+    clouds[i].display();
+  }
+
+  //Display sprite
+  sprite.move();
+  sprite.display(); 
 
   
-  if (sprite.spriteX > 300 && sprite.spriteY < 100){
+  if (sprite.spriteX > 250 && sprite.spriteY < 75){
     mode = 1;
     sprite.spriteX = 75;
     sprite.spriteY = 300;
+    zoneOutSong.stop();
   } else {
     mode = 7;
   }

@@ -8,9 +8,6 @@ class Suitcase {
   }
   
   display(){
-    fill(100, 100, 255);
-    // image(this.suitcaseImage, this.suitcaseX, this.suitcaseY, this.sWidth, this.sHeight );
-    rect(this.suitcaseX, this.suitcaseY, this.sWidth, this.sHeight);
     image(this.suitcaseImage, this.suitcaseX, this.suitcaseY, this.sWidth, this.sHeight);
   }
 
